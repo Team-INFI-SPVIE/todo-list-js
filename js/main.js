@@ -12,8 +12,7 @@ const LINE_THROUGH = "lineThrough";
 let idUpdate = "";
 let nameUpdate = "";
 
-let LIST = [],
-  id;
+let LIST, id;
 let editable = false;
 
 // getItem from localStorage
@@ -112,10 +111,13 @@ list.addEventListener("click", (event) => {
 
   if (elementJob == "complete") {
     completeTodo(element);
+    localStorage.setItem("TODO", JSON.stringify(LIST));
   } else if (elementJob == "delete") {
     deleteTodo(element);
+    localStorage.setItem("TODO", JSON.stringify(LIST));
   } else {
     editTodo(element);
+    localStorage.setItem("TODO", JSON.stringify(LIST));
   }
 });
 
